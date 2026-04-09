@@ -6,30 +6,34 @@
   <title>Shuo Zhao | 赵烁</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:        #0A1628;
-      --bg-card:   #0f1e38;
-      --bg-hover:  #142240;
-      --gold:      #E8B339;
-      --gold-dim:  #C49520;
-      --gold-glow: rgba(232,179,57,0.15);
-      --text:      #e8eaf0;
-      --text-muted:#8a9ab8;
-      --border:    rgba(232,179,57,0.18);
-      --radius:    8px;
+      --bg:         #F7F3EC;
+      --bg-card:    #F2EDE4;
+      --bg-hover:   #EDE6DA;
+      --ink:        #1A1208;
+      --ink-mid:    #4A3F2F;
+      --ink-muted:  #7A6E5E;
+      --vermilion:  #C0392B;
+      --vermilion-dim: #9B2D20;
+      --vermilion-glow: rgba(192,57,43,0.08);
+      --border:     rgba(26,18,8,0.12);
+      --border-mid: rgba(26,18,8,0.20);
+      --radius:     6px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--bg);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      color: var(--ink);
+      font-family: 'EB Garamond', 'Noto Serif SC', serif;
+      font-size: 1rem;
       font-weight: 400;
-      line-height: 1.65;
+      line-height: 1.7;
       min-height: 100vh;
     }
 
@@ -37,138 +41,277 @@
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0.6rem 2rem;
-      background: rgba(10,22,40,0.94);
-      backdrop-filter: blur(12px);
+      padding: 0.65rem 2rem;
+      background: rgba(247,243,236,0.92);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-brand { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--gold); letter-spacing: 0.12em; opacity: 0.85; }
-    .nav-links { display: flex; gap: 1.25rem; align-items: center; list-style: none; }
-    .nav-links a { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
-    .lang-btn {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      padding: 0.25rem 0.65rem; border: 1px solid var(--border); border-radius: 4px;
-      background: transparent; color: var(--gold); cursor: pointer; letter-spacing: 0.08em;
-      transition: background 0.2s, border-color 0.2s;
+    .nav-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; color: var(--ink-mid);
+      letter-spacing: 0.16em; opacity: 0.8;
     }
-    .lang-btn:hover { background: var(--gold-glow); border-color: var(--gold); }
+    .nav-links { display: flex; gap: 1.4rem; align-items: center; list-style: none; }
+    .nav-links a {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.82rem; color: var(--ink-muted);
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--vermilion); }
+    .lang-btn {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+      padding: 0.22rem 0.6rem; border: 1px solid var(--border-mid); border-radius: 3px;
+      background: transparent; color: var(--ink-mid); cursor: pointer; letter-spacing: 0.08em;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { background: var(--vermilion-glow); border-color: var(--vermilion); color: var(--vermilion); }
 
     /* ── Sections ── */
     section {
-      max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem;
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
+      max-width: 1100px; margin: 0 auto; padding: 3rem 2rem;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     section.visible { opacity: 1; transform: none; }
 
     /* ── Hero ── */
-    #about { padding-top: 3.5rem; padding-bottom: 2.5rem; }
-    #hero { display: flex; align-items: center; gap: 2.5rem; }
+    #about { padding-top: 4rem; padding-bottom: 3rem; }
+    #hero { display: flex; align-items: center; gap: 3rem; }
 
     .avatar-wrap { flex-shrink: 0; }
     .avatar-wrap img {
-      display: block; width: 110px; height: 110px;
+      display: block; width: 140px; height: 140px;
       border-radius: 50%; object-fit: cover;
-      border: 2px solid rgba(232,179,57,0.4);
-      box-shadow: 0 0 20px rgba(232,179,57,0.25);
+      border: 2px solid var(--border-mid);
+      box-shadow: 0 2px 12px rgba(26,18,8,0.12);
       transition: box-shadow 0.3s, border-color 0.3s;
     }
     .avatar-wrap:hover img {
-      box-shadow: 0 0 32px rgba(232,179,57,0.5);
-      border-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(26,18,8,0.2);
+      border-color: var(--vermilion);
     }
 
     .hero-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
-      font-weight: 700; line-height: 1.15; color: #fff;
+      font-family: 'Noto Serif SC', 'EB Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 600; line-height: 1.15; color: var(--ink);
+      letter-spacing: -0.01em;
     }
-    .hero-text h1 .accent { font-style: italic; color: var(--gold); }
+    .hero-text h1 .accent {
+      font-family: 'EB Garamond', serif;
+      font-style: italic; color: var(--vermilion);
+    }
 
     .hero-bio {
-      font-size: 0.93rem; color: var(--text-muted);
-      max-width: 480px; line-height: 1.7; margin-top: 0.65rem;
+      font-size: 1rem; color: var(--ink-mid);
+      max-width: 520px; line-height: 1.75; margin-top: 0.75rem;
     }
 
-    .hero-links { display: flex; gap: 0.75rem; margin-top: 1.1rem; flex-wrap: wrap; }
+    .hero-links { display: flex; gap: 0.7rem; margin-top: 1.2rem; flex-wrap: wrap; }
     .icon-link {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-      color: var(--text-muted); text-decoration: none;
-      padding: 0.35rem 0.8rem; border: 1px solid var(--border); border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: var(--ink-muted); text-decoration: none;
+      padding: 0.32rem 0.8rem; border: 1px solid var(--border-mid); border-radius: 4px;
       letter-spacing: 0.05em; transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
-    .icon-link:hover { color: var(--gold); border-color: var(--gold); background: var(--gold-glow); }
+    .icon-link:hover { color: var(--vermilion); border-color: var(--vermilion); background: var(--vermilion-glow); }
     .icon-link svg { width: 14px; height: 14px; fill: currentColor; }
 
     /* ── Section headings ── */
-    .section-head { display: flex; align-items: baseline; gap: 0.85rem; margin-bottom: 1.5rem; }
-    .section-head h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; color: #fff; }
+    .section-head {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-left: 0.85rem;
+      border-left: 3px solid var(--vermilion);
+    }
+    .section-head h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.45rem; font-weight: 600; color: var(--ink);
+      letter-spacing: 0.02em;
+    }
     .section-head .count {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      color: var(--gold); border: 1px solid var(--border); border-radius: 3px;
-      padding: 0.08rem 0.45rem; letter-spacing: 0.08em;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+      color: var(--vermilion); border: 1px solid rgba(192,57,43,0.3); border-radius: 3px;
+      padding: 0.06rem 0.42rem; letter-spacing: 0.08em;
     }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
     /* ── Publications ── */
-    .pub-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .pub-list { display: flex; flex-direction: column; gap: 0.7rem; }
     .pub-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1rem 1.25rem;
+      border-radius: var(--radius); padding: 1.1rem 1.4rem;
       transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
     }
-    .pub-card:hover { border-color: var(--gold); background: var(--bg-hover); box-shadow: 0 0 16px var(--gold-glow); }
+    .pub-card:hover {
+      border-color: var(--vermilion);
+      background: var(--bg-hover);
+      box-shadow: 0 2px 12px rgba(192,57,43,0.08);
+    }
     .pub-title {
-      font-family: 'Playfair Display', serif; font-size: 0.95rem;
-      font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 0.45rem;
+      font-family: 'EB Garamond', 'Noto Serif SC', serif;
+      font-size: 1rem; font-weight: 500;
+      color: var(--ink); line-height: 1.5; margin-bottom: 0.5rem;
     }
-    .pub-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; align-items: center; }
-    .pub-journal { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--gold-dim); letter-spacing: 0.04em; }
-    .pub-year { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
-    .pub-doi { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .pub-doi:hover { color: var(--gold); text-decoration: underline; }
+    .pub-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; align-items: center; }
+    .pub-journal {
+      font-family: 'EB Garamond', serif; font-style: italic;
+      font-size: 0.9rem; color: var(--ink-mid);
+    }
+    .pub-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--ink-muted);
+    }
+    .pub-doi {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--vermilion-dim);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .pub-doi:hover { color: var(--vermilion); text-decoration: underline; }
     .pub-badge {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
-      padding: 0.1rem 0.45rem; border-radius: 3px; letter-spacing: 0.04em;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+      padding: 0.08rem 0.42rem; border-radius: 3px; letter-spacing: 0.04em;
     }
-    .badge-q1 { background: rgba(232,179,57,0.15); color: var(--gold); border: 1px solid rgba(232,179,57,0.3); }
-    .badge-q2 { background: rgba(100,160,220,0.12); color: #7ab3d8; border: 1px solid rgba(100,160,220,0.25); }
-    .badge-if { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid var(--border); }
+    .badge-q1 { background: rgba(192,57,43,0.08); color: var(--vermilion); border: 1px solid rgba(192,57,43,0.25); }
+    .badge-q2 { background: rgba(74,63,47,0.07); color: var(--ink-mid); border: 1px solid var(--border-mid); }
+    .badge-if { background: transparent; color: var(--ink-muted); border: 1px solid var(--border); }
 
     /* ── Projects ── */
-    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
     .proj-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1rem 1.2rem;
+      border-radius: var(--radius); padding: 1.1rem 1.3rem;
       display: flex; flex-direction: column; gap: 0.5rem;
       transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
       text-decoration: none; color: inherit;
     }
-    .proj-card:hover { border-color: var(--gold); background: var(--bg-hover); box-shadow: 0 0 16px var(--gold-glow); }
-    .proj-name { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; font-weight: 500; color: var(--gold); }
-    .proj-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1; }
-    .proj-stats { display: flex; gap: 0.9rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+    .proj-card:hover {
+      border-color: var(--vermilion);
+      background: var(--bg-hover);
+      box-shadow: 0 2px 12px rgba(192,57,43,0.08);
+    }
+    .proj-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem; font-weight: 500; color: var(--vermilion);
+    }
+    .proj-desc { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.6; flex: 1; }
+    .proj-stats {
+      display: flex; gap: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: var(--ink-muted);
+    }
     .proj-stats span { display: flex; align-items: center; gap: 0.25rem; }
 
     /* ── Footer ── */
     footer {
-      border-top: 1px solid var(--border); padding: 1.5rem 1.5rem;
-      text-align: center; font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.07em;
+      border-top: 1px solid var(--border); padding: 1.5rem 2rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: var(--ink-muted); letter-spacing: 0.07em;
     }
-    footer a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: var(--gold); }
-    footer .sep { margin: 0 0.65rem; opacity: 0.4; }
+    footer a { color: var(--ink-mid); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--vermilion); }
+    footer .sep { margin: 0 0.65rem; opacity: 0.35; }
+
+    /* ── Admin Panel ── */
+    #admin-panel {
+      display: none;
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(26,18,8,0.55);
+      backdrop-filter: blur(4px);
+      align-items: flex-start; justify-content: center;
+      padding: 2rem 1rem;
+      overflow-y: auto;
+    }
+    #admin-panel.open { display: flex; }
+    .admin-box {
+      background: rgba(30,22,12,0.97);
+      border: 1px solid rgba(192,57,43,0.35);
+      border-radius: 8px;
+      padding: 2rem;
+      width: 100%; max-width: 680px;
+      color: #e8e0d0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      position: relative;
+    }
+    .admin-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: 1px solid rgba(192,57,43,0.4);
+      color: #C0392B; cursor: pointer; border-radius: 3px;
+      padding: 0.2rem 0.55rem; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; transition: background 0.2s;
+    }
+    .admin-close:hover { background: rgba(192,57,43,0.15); }
+    .admin-title {
+      font-size: 0.9rem; color: #C0392B; letter-spacing: 0.1em;
+      margin-bottom: 1.5rem; text-transform: uppercase;
+    }
+    .admin-section { margin-bottom: 1.5rem; }
+    .admin-section h3 {
+      font-size: 0.72rem; color: rgba(232,224,208,0.5);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding-bottom: 0.35rem;
+    }
+    .admin-section textarea,
+    .admin-section input {
+      width: 100%; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 4px;
+      color: #e8e0d0; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; padding: 0.5rem 0.7rem;
+      outline: none; transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .admin-section textarea:focus,
+    .admin-section input:focus { border-color: rgba(192,57,43,0.5); }
+    .admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .admin-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .admin-entry {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px; padding: 0.6rem 0.8rem; margin-bottom: 0.5rem;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem;
+    }
+    .admin-entry-text { flex: 1; font-size: 0.75rem; color: rgba(232,224,208,0.75); line-height: 1.5; }
+    .admin-entry-del {
+      background: none; border: 1px solid rgba(192,57,43,0.3);
+      color: #C0392B; cursor: pointer; border-radius: 3px;
+      padding: 0.15rem 0.45rem; font-size: 0.7rem; flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .admin-entry-del:hover { background: rgba(192,57,43,0.15); }
+    .admin-add-form { margin-top: 0.75rem; }
+    .admin-btn {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      padding: 0.3rem 0.8rem; border-radius: 3px; cursor: pointer;
+      letter-spacing: 0.06em; transition: background 0.2s, border-color 0.2s;
+    }
+    .admin-btn-add {
+      background: rgba(192,57,43,0.12); border: 1px solid rgba(192,57,43,0.4);
+      color: #C0392B; margin-top: 0.5rem;
+    }
+    .admin-btn-add:hover { background: rgba(192,57,43,0.22); }
+    .admin-save {
+      background: #C0392B; border: 1px solid #C0392B;
+      color: #fff; padding: 0.45rem 1.4rem; font-size: 0.78rem;
+      margin-top: 0.5rem;
+    }
+    .admin-save:hover { background: #9B2D20; border-color: #9B2D20; }
+    .admin-hint {
+      font-size: 0.68rem; color: rgba(232,224,208,0.35);
+      margin-top: 1rem; letter-spacing: 0.04em;
+    }
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
-      #hero { flex-direction: column; gap: 1.25rem; text-align: center; }
+      #hero { flex-direction: column; gap: 1.5rem; text-align: center; }
       .hero-links { justify-content: center; }
       nav { padding: 0.6rem 1rem; }
       .nav-links { gap: 0.85rem; }
       section { padding: 2rem 1rem; }
+      .admin-row, .admin-row-3 { grid-template-columns: 1fr; }
     }
 
     /* ── i18n ── */
@@ -185,17 +328,73 @@
   <span class="nav-brand">SH · ZHAO</span>
   <ul class="nav-links">
     <li><a href="#about"    data-lang="en">About</a><a href="#about"    data-lang="zh">关于</a></li>
-    <li><a href="#pubs"     data-lang="en">Publications</a><a href="#pubs"     data-lang="zh">论文</a></li>
+    <li><a href="#pubs"     data-lang="en">Academic Projects</a><a href="#pubs"     data-lang="zh">学术项目</a></li>
     <li><a href="#projects" data-lang="en">Projects</a><a href="#projects" data-lang="zh">项目</a></li>
     <li><button class="lang-btn" id="langToggle">中文</button></li>
   </ul>
 </nav>
 
+<!-- Admin Panel -->
+<div id="admin-panel" role="dialog" aria-modal="true" aria-label="Content Manager">
+  <div class="admin-box">
+    <button class="admin-close" id="adminClose" aria-label="Close panel">✕ Close</button>
+    <div class="admin-title">// Content Manager</div>
+
+    <!-- Bio -->
+    <div class="admin-section">
+      <h3>Bio (EN)</h3>
+      <textarea id="adminBioEn" rows="3" placeholder="English bio..."></textarea>
+      <h3 style="margin-top:0.6rem;">Bio (ZH)</h3>
+      <textarea id="adminBioZh" rows="3" placeholder="中文简介..."></textarea>
+    </div>
+
+    <!-- Publications -->
+    <div class="admin-section">
+      <h3>Publications</h3>
+      <div id="adminPubList"></div>
+      <div class="admin-add-form">
+        <div class="admin-row">
+          <input id="apTitle" placeholder="Title" />
+          <input id="apJournal" placeholder="Journal" />
+        </div>
+        <div class="admin-row-3">
+          <input id="apYear" placeholder="Year" />
+          <input id="apDoi" placeholder="DOI (e.g. 10.xxx/yyy)" />
+          <input id="apJcr" placeholder="JCR (e.g. Q1)" />
+        </div>
+        <input id="apIf" placeholder="IF (e.g. 5.2)" style="margin-bottom:0.5rem;" />
+        <br>
+        <button class="admin-btn admin-btn-add" id="adminAddPub">+ Add Publication</button>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="admin-section">
+      <h3>Projects</h3>
+      <div id="adminProjList"></div>
+      <div class="admin-add-form">
+        <div class="admin-row">
+          <input id="aprName" placeholder="Repo name" />
+          <input id="aprDescEn" placeholder="Description EN" />
+        </div>
+        <div class="admin-row">
+          <input id="aprDescZh" placeholder="描述 ZH" />
+          <input id="aprRepo" placeholder="GitHub repo slug" />
+        </div>
+        <button class="admin-btn admin-btn-add" id="adminAddProj">+ Add Project</button>
+      </div>
+    </div>
+
+    <button class="admin-btn admin-save" id="adminSave">Save to localStorage</button>
+    <p class="admin-hint">Ctrl+Shift+E to toggle · Changes persist on refresh</p>
+  </div>
+</div>
+
 <!-- Hero -->
 <section id="about">
   <div id="hero">
     <div class="avatar-wrap">
-      <img src="assets/avatar.jpg" alt="Shuo Zhao — 瞾" width="110" height="110"/>
+      <img src="assets/avatar.jpg" alt="Shuo Zhao — 瞾" width="140" height="140"/>
     </div>
     <div class="hero-text">
       <h1>
@@ -203,10 +402,10 @@
         <span class="lang-inline" data-lang="zh">赵&thinsp;烁</span>
         <span> / </span><span class="accent">瞾</span>
       </h1>
-      <p class="hero-bio" data-lang="en">
+      <p class="hero-bio" id="bioEn" data-lang="en">
         Researcher focused on luminescent materials — phosphors, rare-earth doping, and photoluminescence mechanisms. Based in China. Passionate about bridging synthesis and optical characterization to design next-generation lighting materials.
       </p>
-      <p class="hero-bio" data-lang="zh">
+      <p class="hero-bio" id="bioZh" data-lang="zh">
         专注于发光材料研究，涵盖荧光粉合成、稀土掺杂及光致发光机制。立足中国，致力于将材料合成与光学表征相结合，探索新一代照明材料的设计路径。
       </p>
       <div class="hero-links">
@@ -226,8 +425,8 @@
 <!-- Publications -->
 <section id="pubs">
   <div class="section-head">
-    <h2 data-lang="en">Publications</h2>
-    <h2 data-lang="zh">学术论文</h2>
+    <h2 data-lang="en">Academic Projects</h2>
+    <h2 data-lang="zh">学术项目</h2>
     <span class="count" id="pubCount">5</span>
     <span class="section-line"></span>
   </div>
@@ -296,15 +495,15 @@
     <h2 data-lang="zh">开源项目</h2>
     <span class="section-line"></span>
   </div>
-  <div class="proj-grid">
+  <div class="proj-grid" id="projGrid">
 
     <a class="proj-card" href="https://github.com/ShZhao27208/Aut_Sci_Write" target="_blank" rel="noopener" data-repo="Aut_Sci_Write">
       <span class="proj-name">Aut_Sci_Write</span>
       <p class="proj-desc" data-lang="en">Academic research skills suite for Claude Code — automates literature review, writing, and citation workflows.</p>
       <p class="proj-desc" data-lang="zh">面向 Claude Code 的学术研究技能套件，自动化文献综述、写作与引用流程。</p>
       <div class="proj-stats">
-        <span>★ <span class="stars">8</span></span>
-        <span>⑂ <span class="forks">1</span></span>
+        <span>★ <span class="stars">—</span></span>
+        <span>⑂ <span class="forks">—</span></span>
       </div>
     </a>
 
@@ -313,8 +512,8 @@
       <p class="proj-desc" data-lang="en">Academic PPT auto-generation — converts research content into structured presentation slides.</p>
       <p class="proj-desc" data-lang="zh">学术 PPT 自动生成工具，将研究内容转换为结构化演示文稿。</p>
       <div class="proj-stats">
-        <span>★ <span class="stars">13</span></span>
-        <span>⑂ <span class="forks">3</span></span>
+        <span>★ <span class="stars">—</span></span>
+        <span>⑂ <span class="forks">—</span></span>
       </div>
     </a>
 
@@ -343,7 +542,86 @@
 </footer>
 
 <script>
-  // Language toggle
+  // ── Default data ──
+  const DEFAULT_PUBS = [
+    { title: 'Super luminescence enhancement, luminescence color-changing and emission mechanism of Sr\u2081.\u2085Ca\u2080.\u2085Al\u2082SiO\u2087:aCe\u2074\u207a,bTb\u00b3\u207a', journal: 'CrystEngComm', year: '2026', doi: '10.1039/D5CE00774G', jcr: 'Q2', if: '3.1' },
+    { title: 'Sm\u00b3\u207a-activated YAlGeO\u2085 phosphors for bright red emission with ultra-low color temperature', journal: 'Ceramics International', year: '2025', doi: '10.1016/j.ceramint.2025.08.233', jcr: 'Q1', if: '5.2' },
+    { title: 'Preparation and luminescence mechanism of an orange-red BaCa\u2082Y\u2086O\u2081\u2082:Sm luminescent material with high color purity, quantum yield and thermal stability', journal: 'Ceramics International', year: '2025', doi: '10.1016/j.ceramint.2025.05.454', jcr: 'Q1', if: '5.2' },
+    { title: 'Insights into the high brightness, color purity, narrowband red-emission and luminous mechanism of Eu-doped CaY\u2082Ge\u2084O\u2081\u2082', journal: 'CrystEngComm', year: '2025', doi: '10.1039/D5CE00581G', jcr: 'Q2', if: '3.1' },
+    { title: 'Analysis of Congestion Problems at Green Dream Roundabout Intersection in Yubei District', journal: 'Journal of Innovation and Development', year: '2023', doi: '10.54097/h2n1l8wc', jcr: '', if: '' },
+  ];
+  const DEFAULT_PROJS = [
+    { name: 'Aut_Sci_Write', descEn: 'Academic research skills suite for Claude Code \u2014 automates literature review, writing, and citation workflows.', descZh: '\u9762\u5411 Claude Code \u7684\u5b66\u672f\u7814\u7a76\u6280\u80fd\u5957\u4ef6\uff0c\u81ea\u52a8\u5316\u6587\u732e\u7efc\u8ff0\u3001\u5199\u4f5c\u4e0e\u5f15\u7528\u6d41\u7a0b\u3002', repo: 'Aut_Sci_Write' },
+    { name: 'Aut_Sci_ppt', descEn: 'Academic PPT auto-generation \u2014 converts research content into structured presentation slides.', descZh: '\u5b66\u672f PPT \u81ea\u52a8\u751f\u6210\u5de5\u5177\uff0c\u5c06\u7814\u7a76\u5185\u5bb9\u8f6c\u6362\u4e3a\u7ed3\u6784\u5316\u6f14\u793a\u6587\u7a3f\u3002', repo: 'Aut_Sci_ppt' },
+    { name: 'Sh_Sci_Fig', descEn: 'Extract and organize figures from academic PDFs with metadata preservation.', descZh: '\u4ece\u5b66\u672f PDF \u4e2d\u63d0\u53d6\u5e76\u6574\u7406\u56fe\u8868\uff0c\u4fdd\u7559\u5143\u6570\u636e\u4fe1\u606f\u3002', repo: 'Sh_Sci_Fig' },
+  ];
+
+  // ── State ──
+  let state = {
+    bioEn: document.getElementById('bioEn').textContent.trim(),
+    bioZh: document.getElementById('bioZh').textContent.trim(),
+    pubs: JSON.parse(JSON.stringify(DEFAULT_PUBS)),
+    projs: JSON.parse(JSON.stringify(DEFAULT_PROJS)),
+  };
+
+  function loadState() {
+    try {
+      const saved = localStorage.getItem('shzhao_content');
+      if (saved) Object.assign(state, JSON.parse(saved));
+    } catch (_) {}
+  }
+
+  function saveState() {
+    localStorage.setItem('shzhao_content', JSON.stringify(state));
+  }
+
+  // ── Render publications from state ──
+  function renderPubs() {
+    const list = document.getElementById('pubList');
+    list.innerHTML = '';
+    state.pubs.forEach(p => {
+      const art = document.createElement('article');
+      art.className = 'pub-card';
+      const jcrClass = p.jcr === 'Q1' ? 'badge-q1' : p.jcr === 'Q2' ? 'badge-q2' : '';
+      art.innerHTML = `
+        <p class="pub-title">${p.title}</p>
+        <div class="pub-meta">
+          ${p.journal ? `<span class="pub-journal">${p.journal}</span>` : ''}
+          ${p.year    ? `<span class="pub-year">${p.year}</span>` : ''}
+          ${p.jcr     ? `<span class="pub-badge ${jcrClass}">JCR ${p.jcr}</span>` : ''}
+          ${p.if      ? `<span class="pub-badge badge-if">IF ${p.if}</span>` : ''}
+          ${p.doi     ? `<a class="pub-doi" href="https://doi.org/${p.doi}" target="_blank" rel="noopener">DOI \u2192</a>` : ''}
+        </div>`;
+      list.appendChild(art);
+    });
+    document.getElementById('pubCount').textContent = state.pubs.length;
+  }
+
+  // ── Render projects from state ──
+  function renderProjs() {
+    const grid = document.getElementById('projGrid');
+    grid.innerHTML = '';
+    state.projs.forEach(p => {
+      const a = document.createElement('a');
+      a.className = 'proj-card';
+      a.href = `https://github.com/ShZhao27208/${p.repo}`;
+      a.target = '_blank'; a.rel = 'noopener';
+      a.dataset.repo = p.repo;
+      a.innerHTML = `
+        <span class="proj-name">${p.name}</span>
+        <p class="proj-desc" data-lang="en">${p.descEn}</p>
+        <p class="proj-desc" data-lang="zh">${p.descZh}</p>
+        <div class="proj-stats">
+          <span>\u2605 <span class="stars">\u2014</span></span>
+          <span>\u2442 <span class="forks">\u2014</span></span>
+        </div>`;
+      grid.appendChild(a);
+    });
+    applyLang(lang);
+    fetchGitHub();
+  }
+
+  // ── Language toggle ──
   const toggle = document.getElementById('langToggle');
   let lang = 'en';
   function applyLang(l) {
@@ -351,34 +629,35 @@
     document.querySelectorAll('[data-lang]').forEach(el => {
       el.classList.toggle('active', el.dataset.lang === l);
     });
-    toggle.textContent = l === 'en' ? '中文' : 'EN';
+    toggle.textContent = l === 'en' ? '\u4e2d\u6587' : 'EN';
     document.documentElement.lang = l === 'en' ? 'en' : 'zh';
   }
   toggle.addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
-  applyLang('en');
 
-  // Scroll reveal
+  // ── Scroll reveal ──
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.06 });
+  }, { threshold: 0.05 });
   document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-  // GitHub API: live star/fork counts
+  // ── GitHub API ──
   const OWNER = 'ShZhao27208';
-  document.querySelectorAll('.proj-card[data-repo]').forEach(async card => {
-    const repo = card.dataset.repo;
-    try {
-      const res = await fetch(`https://api.github.com/repos/${OWNER}/${repo}`);
-      if (!res.ok) return;
-      const data = await res.json();
-      const s = card.querySelector('.stars');
-      const f = card.querySelector('.forks');
-      if (s) s.textContent = data.stargazers_count ?? s.textContent;
-      if (f) f.textContent = data.forks_count ?? f.textContent;
-    } catch (_) {}
-  });
+  function fetchGitHub() {
+    document.querySelectorAll('.proj-card[data-repo]').forEach(async card => {
+      const repo = card.dataset.repo;
+      try {
+        const res = await fetch(`https://api.github.com/repos/${OWNER}/${repo}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const s = card.querySelector('.stars');
+        const f = card.querySelector('.forks');
+        if (s) s.textContent = data.stargazers_count ?? s.textContent;
+        if (f) f.textContent = data.forks_count ?? f.textContent;
+      } catch (_) {}
+    });
+  }
 
-  // ORCID API: append new works not already listed
+  // ── ORCID API ──
   const ORCID_ID = '0009-0004-5456-4319';
   const KNOWN_DOIS = new Set([
     '10.1039/d5ce00774g','10.1016/j.ceramint.2025.08.233',
@@ -407,7 +686,7 @@
           <div class="pub-meta">
             ${journal ? `<span class="pub-journal">${journal}</span>` : ''}
             ${year    ? `<span class="pub-year">${year}</span>` : ''}
-            ${doi     ? `<a class="pub-doi" href="https://doi.org/${doi}" target="_blank" rel="noopener">DOI →</a>` : ''}
+            ${doi     ? `<a class="pub-doi" href="https://doi.org/${doi}" target="_blank" rel="noopener">DOI \u2192</a>` : ''}
           </div>`;
         document.getElementById('pubList').appendChild(card);
         if (doi) KNOWN_DOIS.add(doi);
@@ -416,6 +695,100 @@
       if (added > 0) document.getElementById('pubCount').textContent = document.querySelectorAll('.pub-card').length;
     } catch (_) {}
   })();
+
+  // ── Admin Panel ──
+  const adminPanel = document.getElementById('admin-panel');
+  const adminClose = document.getElementById('adminClose');
+
+  function openAdmin() {
+    adminPanel.classList.add('open');
+    document.getElementById('adminBioEn').value = state.bioEn;
+    document.getElementById('adminBioZh').value = state.bioZh;
+    renderAdminPubs();
+    renderAdminProjs();
+  }
+  function closeAdmin() { adminPanel.classList.remove('open'); }
+
+  adminClose.addEventListener('click', closeAdmin);
+  adminPanel.addEventListener('click', e => { if (e.target === adminPanel) closeAdmin(); });
+
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'E') { e.preventDefault(); adminPanel.classList.contains('open') ? closeAdmin() : openAdmin(); }
+    if (e.key === 'Escape' && adminPanel.classList.contains('open')) closeAdmin();
+  });
+
+  function renderAdminPubs() {
+    const el = document.getElementById('adminPubList');
+    el.innerHTML = '';
+    state.pubs.forEach((p, i) => {
+      const div = document.createElement('div');
+      div.className = 'admin-entry';
+      div.innerHTML = `<span class="admin-entry-text">${p.title} <em style="opacity:.5">(${p.journal}, ${p.year})</em></span>
+        <button class="admin-entry-del" data-i="${i}">del</button>`;
+      div.querySelector('button').addEventListener('click', () => {
+        state.pubs.splice(i, 1);
+        renderAdminPubs();
+      });
+      el.appendChild(div);
+    });
+  }
+
+  function renderAdminProjs() {
+    const el = document.getElementById('adminProjList');
+    el.innerHTML = '';
+    state.projs.forEach((p, i) => {
+      const div = document.createElement('div');
+      div.className = 'admin-entry';
+      div.innerHTML = `<span class="admin-entry-text">${p.name} <em style="opacity:.5">(${p.repo})</em></span>
+        <button class="admin-entry-del" data-i="${i}">del</button>`;
+      div.querySelector('button').addEventListener('click', () => {
+        state.projs.splice(i, 1);
+        renderAdminProjs();
+      });
+      el.appendChild(div);
+    });
+  }
+
+  document.getElementById('adminAddPub').addEventListener('click', () => {
+    const title   = document.getElementById('apTitle').value.trim();
+    const journal = document.getElementById('apJournal').value.trim();
+    const year    = document.getElementById('apYear').value.trim();
+    const doi     = document.getElementById('apDoi').value.trim();
+    const jcr     = document.getElementById('apJcr').value.trim().toUpperCase();
+    const ifVal   = document.getElementById('apIf').value.trim();
+    if (!title) return;
+    state.pubs.push({ title, journal, year, doi, jcr, if: ifVal });
+    ['apTitle','apJournal','apYear','apDoi','apJcr','apIf'].forEach(id => { document.getElementById(id).value = ''; });
+    renderAdminPubs();
+  });
+
+  document.getElementById('adminAddProj').addEventListener('click', () => {
+    const name   = document.getElementById('aprName').value.trim();
+    const descEn = document.getElementById('aprDescEn').value.trim();
+    const descZh = document.getElementById('aprDescZh').value.trim();
+    const repo   = document.getElementById('aprRepo').value.trim();
+    if (!name) return;
+    state.projs.push({ name, descEn, descZh, repo: repo || name });
+    ['aprName','aprDescEn','aprDescZh','aprRepo'].forEach(id => { document.getElementById(id).value = ''; });
+    renderAdminProjs();
+  });
+
+  document.getElementById('adminSave').addEventListener('click', () => {
+    state.bioEn = document.getElementById('adminBioEn').value.trim() || state.bioEn;
+    state.bioZh = document.getElementById('adminBioZh').value.trim() || state.bioZh;
+    saveState();
+    document.getElementById('bioEn').textContent = state.bioEn;
+    document.getElementById('bioZh').textContent = state.bioZh;
+    renderPubs();
+    renderProjs();
+    closeAdmin();
+  });
+
+  // ── Init ──
+  loadState();
+  renderPubs();
+  renderProjs();
+  applyLang('en');
 </script>
 </body>
 </html>
