@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shuo Zhao | 赵烁 — Materials Science</title>
+  <title>Shuo Zhao | 赵烁</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,15 +14,14 @@
       --bg-hover:  #142240;
       --gold:      #E8B339;
       --gold-dim:  #C49520;
-      --gold-glow: rgba(232,179,57,0.18);
+      --gold-glow: rgba(232,179,57,0.15);
       --text:      #e8eaf0;
       --text-muted:#8a9ab8;
-      --border:    rgba(232,179,57,0.2);
-      --radius:    10px;
+      --border:    rgba(232,179,57,0.18);
+      --radius:    8px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -30,326 +29,149 @@
       color: var(--text);
       font-family: 'Source Sans 3', sans-serif;
       font-weight: 400;
-      line-height: 1.7;
+      line-height: 1.65;
       min-height: 100vh;
     }
 
     /* ── Nav ── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 2rem;
-      background: rgba(10,22,40,0.92);
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.6rem 2rem;
+      background: rgba(10,22,40,0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
-    .nav-brand {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--gold);
-      letter-spacing: 0.12em;
-      opacity: 0.85;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-    }
-
+    .nav-brand { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--gold); letter-spacing: 0.12em; opacity: 0.85; }
+    .nav-links { display: flex; gap: 1.25rem; align-items: center; list-style: none; }
+    .nav-links a { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
-
     .lang-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      padding: 0.3rem 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: transparent;
-      color: var(--gold);
-      cursor: pointer;
-      letter-spacing: 0.08em;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      padding: 0.25rem 0.65rem; border: 1px solid var(--border); border-radius: 4px;
+      background: transparent; color: var(--gold); cursor: pointer; letter-spacing: 0.08em;
       transition: background 0.2s, border-color 0.2s;
     }
-
-    .lang-btn:hover {
-      background: var(--gold-glow);
-      border-color: var(--gold);
-    }
+    .lang-btn:hover { background: var(--gold-glow); border-color: var(--gold); }
 
     /* ── Sections ── */
     section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 5rem 1.5rem;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
     }
-
-    section.visible {
-      opacity: 1;
-      transform: none;
-    }
+    section.visible { opacity: 1; transform: none; }
 
     /* ── Hero ── */
-    #hero {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      padding-top: 6rem;
-      padding-bottom: 4rem;
-    }
+    #about { padding-top: 3.5rem; padding-bottom: 2.5rem; }
+    #hero { display: flex; align-items: center; gap: 2.5rem; }
 
-    .avatar-wrap {
-      flex-shrink: 0;
-      position: relative;
+    .avatar-wrap { flex-shrink: 0; }
+    .avatar-wrap img {
+      display: block; width: 110px; height: 110px;
+      border-radius: 50%; object-fit: cover;
+      border: 2px solid rgba(232,179,57,0.4);
+      box-shadow: 0 0 20px rgba(232,179,57,0.25);
+      transition: box-shadow 0.3s, border-color 0.3s;
     }
-
-    .avatar-wrap svg {
-      display: block;
-      filter: drop-shadow(0 0 18px rgba(232,179,57,0.35));
-      transition: filter 0.3s;
-    }
-
-    .avatar-wrap:hover svg {
-      filter: drop-shadow(0 0 28px rgba(232,179,57,0.6));
+    .avatar-wrap:hover img {
+      box-shadow: 0 0 32px rgba(232,179,57,0.5);
+      border-color: var(--gold);
     }
 
     .hero-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: #fff;
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+      font-weight: 700; line-height: 1.15; color: #fff;
     }
-
-    .hero-text h1 span {
-      color: var(--gold);
-    }
-
-    .hero-subtitle {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--gold-dim);
-      letter-spacing: 0.15em;
-      margin: 0.5rem 0 1rem;
-      text-transform: uppercase;
-    }
+    .hero-text h1 .accent { font-style: italic; color: var(--gold); }
 
     .hero-bio {
-      font-size: 0.97rem;
-      color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.75;
+      font-size: 0.93rem; color: var(--text-muted);
+      max-width: 480px; line-height: 1.7; margin-top: 0.65rem;
     }
 
-    .hero-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-
+    .hero-links { display: flex; gap: 0.75rem; margin-top: 1.1rem; flex-wrap: wrap; }
     .icon-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 0.4rem 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      letter-spacing: 0.06em;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+      color: var(--text-muted); text-decoration: none;
+      padding: 0.35rem 0.8rem; border: 1px solid var(--border); border-radius: 5px;
+      letter-spacing: 0.05em; transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
-
-    .icon-link:hover {
-      color: var(--gold);
-      border-color: var(--gold);
-      background: var(--gold-glow);
-    }
-
-    .icon-link svg { width: 15px; height: 15px; fill: currentColor; }
+    .icon-link:hover { color: var(--gold); border-color: var(--gold); background: var(--gold-glow); }
+    .icon-link svg { width: 14px; height: 14px; fill: currentColor; }
 
     /* ── Section headings ── */
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-head h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      font-weight: 600;
-      color: #fff;
-    }
-
+    .section-head { display: flex; align-items: baseline; gap: 0.85rem; margin-bottom: 1.5rem; }
+    .section-head h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; color: #fff; }
     .section-head .count {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--gold);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 0.1rem 0.5rem;
-      letter-spacing: 0.08em;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: var(--gold); border: 1px solid var(--border); border-radius: 3px;
+      padding: 0.08rem 0.45rem; letter-spacing: 0.08em;
     }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
 
     /* ── Publications ── */
-    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
-
+    .pub-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .pub-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem 1.5rem;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
       transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
     }
-
-    .pub-card:hover {
-      border-color: var(--gold);
-      background: var(--bg-hover);
-      box-shadow: 0 0 20px var(--gold-glow);
-    }
-
+    .pub-card:hover { border-color: var(--gold); background: var(--bg-hover); box-shadow: 0 0 16px var(--gold-glow); }
     .pub-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.45;
-      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif; font-size: 0.95rem;
+      font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 0.45rem;
     }
-
-    .pub-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.2rem;
-      align-items: center;
-    }
-
-    .pub-journal {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--gold-dim);
-      letter-spacing: 0.05em;
-    }
-
-    .pub-year {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .pub-doi {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .pub-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; align-items: center; }
+    .pub-journal { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--gold-dim); letter-spacing: 0.04em; }
+    .pub-year { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+    .pub-doi { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .pub-doi:hover { color: var(--gold); text-decoration: underline; }
+    .pub-badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+      padding: 0.1rem 0.45rem; border-radius: 3px; letter-spacing: 0.04em;
+    }
+    .badge-q1 { background: rgba(232,179,57,0.15); color: var(--gold); border: 1px solid rgba(232,179,57,0.3); }
+    .badge-q2 { background: rgba(100,160,220,0.12); color: #7ab3d8; border: 1px solid rgba(100,160,220,0.25); }
+    .badge-if { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid var(--border); }
 
     /* ── Projects ── */
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
     .proj-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.2rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
       transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
-      text-decoration: none;
-      color: inherit;
+      text-decoration: none; color: inherit;
     }
-
-    .proj-card:hover {
-      border-color: var(--gold);
-      background: var(--bg-hover);
-      box-shadow: 0 0 20px var(--gold-glow);
-    }
-
-    .proj-name {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--gold);
-    }
-
-    .proj-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      flex: 1;
-    }
-
-    .proj-stats {
-      display: flex;
-      gap: 1rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .proj-stats span { display: flex; align-items: center; gap: 0.3rem; }
+    .proj-card:hover { border-color: var(--gold); background: var(--bg-hover); box-shadow: 0 0 16px var(--gold-glow); }
+    .proj-name { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; font-weight: 500; color: var(--gold); }
+    .proj-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1; }
+    .proj-stats { display: flex; gap: 0.9rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+    .proj-stats span { display: flex; align-items: center; gap: 0.25rem; }
 
     /* ── Footer ── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
+      border-top: 1px solid var(--border); padding: 1.5rem 1.5rem;
+      text-align: center; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.07em;
     }
-
     footer a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--gold); }
-    footer .sep { margin: 0 0.75rem; opacity: 0.4; }
+    footer .sep { margin: 0 0.65rem; opacity: 0.4; }
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
-      #hero { flex-direction: column; gap: 1.75rem; text-align: center; }
+      #hero { flex-direction: column; gap: 1.25rem; text-align: center; }
       .hero-links { justify-content: center; }
-      nav { padding: 0.75rem 1rem; }
-      .nav-links { gap: 1rem; }
-      .section-head h2 { font-size: 1.4rem; }
+      nav { padding: 0.6rem 1rem; }
+      .nav-links { gap: 0.85rem; }
+      section { padding: 2rem 1rem; }
     }
 
-    /* ── i18n hidden ── */
+    /* ── i18n ── */
     [data-lang] { display: none; }
     [data-lang].active { display: revert; }
     .lang-inline[data-lang] { display: none; }
@@ -358,113 +180,42 @@
 </head>
 <body>
 
-<!-- ── Nav ── -->
+<!-- Nav -->
 <nav>
   <span class="nav-brand">SH · ZHAO</span>
   <ul class="nav-links">
     <li><a href="#about"    data-lang="en">About</a><a href="#about"    data-lang="zh">关于</a></li>
     <li><a href="#pubs"     data-lang="en">Publications</a><a href="#pubs"     data-lang="zh">论文</a></li>
     <li><a href="#projects" data-lang="en">Projects</a><a href="#projects" data-lang="zh">项目</a></li>
-    <li>
-      <button class="lang-btn" id="langToggle" aria-label="Switch language">中文</button>
-    </li>
+    <li><button class="lang-btn" id="langToggle">中文</button></li>
   </ul>
 </nav>
 
-<!-- ── Hero / About ── -->
+<!-- Hero -->
 <section id="about">
   <div id="hero">
-    <div class="avatar-wrap" aria-label="Pixel avatar — 瞾 (Shuo Zhao)">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-hidden="true">
-        <defs>
-          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <rect width="120" height="120" rx="10" ry="10" fill="#0A1628"/>
-        <rect x="2" y="2" width="116" height="116" rx="8" ry="8" fill="none" stroke="#E8B339" stroke-width="1" opacity="0.5"/>
-        <rect x="4"   y="4"   width="4" height="4" fill="#E8B339" opacity="0.9"/>
-        <rect x="112" y="4"   width="4" height="4" fill="#E8B339" opacity="0.9"/>
-        <rect x="4"   y="112" width="4" height="4" fill="#E8B339" opacity="0.9"/>
-        <rect x="112" y="112" width="4" height="4" fill="#E8B339" opacity="0.9"/>
-        <rect x="9"   y="4"   width="6" height="2" fill="#E8B339" opacity="0.5"/>
-        <rect x="4"   y="9"   width="2" height="6" fill="#E8B339" opacity="0.5"/>
-        <rect x="105" y="4"   width="6" height="2" fill="#E8B339" opacity="0.5"/>
-        <rect x="114" y="9"   width="2" height="6" fill="#E8B339" opacity="0.5"/>
-        <rect x="9"   y="114" width="6" height="2" fill="#E8B339" opacity="0.5"/>
-        <rect x="4"   y="105" width="2" height="6" fill="#E8B339" opacity="0.5"/>
-        <rect x="105" y="114" width="6" height="2" fill="#E8B339" opacity="0.5"/>
-        <rect x="114" y="105" width="2" height="6" fill="#E8B339" opacity="0.5"/>
-        <g filter="url(#glow)">
-          <rect x="10" y="10" width="36" height="4" fill="#E8B339"/>
-          <rect x="10" y="14" width="4"  height="42" fill="#E8B339"/>
-          <rect x="42" y="14" width="4"  height="42" fill="#E8B339"/>
-          <rect x="10" y="30" width="36" height="4" fill="#E8B339"/>
-          <rect x="10" y="52" width="36" height="4" fill="#E8B339"/>
-          <rect x="50" y="10" width="4"  height="46" fill="#C49520"/>
-          <rect x="54" y="10" width="36" height="4"  fill="#C49520"/>
-          <rect x="90" y="14" width="4"  height="4"  fill="#C49520"/>
-          <rect x="94" y="18" width="4"  height="4"  fill="#C49520"/>
-          <rect x="98" y="22" width="4"  height="12" fill="#C49520"/>
-          <rect x="94" y="34" width="4"  height="4"  fill="#C49520"/>
-          <rect x="90" y="38" width="4"  height="4"  fill="#C49520"/>
-          <rect x="86" y="42" width="4"  height="4"  fill="#C49520"/>
-          <rect x="82" y="46" width="4"  height="4"  fill="#C49520"/>
-          <rect x="78" y="50" width="4"  height="4"  fill="#C49520"/>
-          <rect x="54" y="26" width="36" height="4"  fill="#C49520"/>
-          <rect x="54" y="42" width="28" height="4"  fill="#C49520"/>
-          <rect x="50" y="52" width="32" height="4"  fill="#C49520"/>
-        </g>
-        <g filter="url(#glow)">
-          <rect x="28" y="62" width="4" height="4" fill="#E8B339"/>
-          <rect x="24" y="66" width="4" height="4" fill="#E8B339"/>
-          <rect x="20" y="70" width="4" height="4" fill="#E8B339"/>
-          <rect x="16" y="74" width="4" height="4" fill="#E8B339"/>
-          <rect x="12" y="74" width="4" height="4" fill="#E8B339"/>
-          <rect x="32" y="66" width="4" height="4" fill="#E8B339"/>
-          <rect x="36" y="70" width="4" height="4" fill="#E8B339"/>
-          <rect x="40" y="74" width="4" height="4" fill="#E8B339"/>
-          <rect x="44" y="74" width="4" height="4" fill="#E8B339"/>
-          <rect x="10" y="78" width="44" height="4" fill="#E8B339"/>
-          <rect x="16" y="82" width="4"  height="8" fill="#C49520"/>
-          <rect x="40" y="82" width="4"  height="8" fill="#C49520"/>
-          <rect x="20" y="90" width="24" height="4" fill="#E8B339"/>
-          <rect x="20" y="94" width="4"  height="8" fill="#E8B339"/>
-          <rect x="40" y="94" width="4"  height="8" fill="#E8B339"/>
-          <rect x="20" y="102" width="24" height="4" fill="#E8B339"/>
-          <rect x="58" y="66" width="50" height="4" fill="#C49520"/>
-          <rect x="80" y="70" width="4"  height="28" fill="#C49520"/>
-          <rect x="58" y="98" width="50" height="4" fill="#C49520"/>
-        </g>
-        <text x="60" y="115" font-family="'Courier New',monospace" font-size="6" fill="#E8B339" opacity="0.65" text-anchor="middle" letter-spacing="1.5">SHUO · ZHAO</text>
-      </svg>
+    <div class="avatar-wrap">
+      <img src="assets/avatar.jpg" alt="Shuo Zhao — 瞾" width="110" height="110"/>
     </div>
-
     <div class="hero-text">
-      <p class="hero-subtitle" data-lang="en">Materials Science · Luminescent Materials</p>
-      <p class="hero-subtitle" data-lang="zh">材料科学 · 发光材料</p>
-
       <h1>
         <span class="lang-inline" data-lang="en">Shuo Zhao</span>
         <span class="lang-inline" data-lang="zh">赵&thinsp;烁</span>
-        <span> / </span><span style="font-style:italic;color:var(--gold)">瞾</span>
+        <span> / </span><span class="accent">瞾</span>
       </h1>
-
       <p class="hero-bio" data-lang="en">
         Researcher focused on luminescent materials — phosphors, rare-earth doping, and photoluminescence mechanisms. Based in China. Passionate about bridging synthesis and optical characterization to design next-generation lighting materials.
       </p>
       <p class="hero-bio" data-lang="zh">
         专注于发光材料研究，涵盖荧光粉合成、稀土掺杂及光致发光机制。立足中国，致力于将材料合成与光学表征相结合，探索新一代照明材料的设计路径。
       </p>
-
       <div class="hero-links">
-        <a class="icon-link" href="https://github.com/ShZhao27208" target="_blank" rel="noopener" aria-label="GitHub profile">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 6.1 18 6.4 18 6.4c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        <a class="icon-link" href="https://github.com/ShZhao27208" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 6.1 18 6.4 18 6.4c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
           GitHub
         </a>
-        <a class="icon-link" href="https://orcid.org/0009-0004-5456-4319" target="_blank" rel="noopener" aria-label="ORCID profile">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg>
+        <a class="icon-link" href="https://orcid.org/0009-0004-5456-4319" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg>
           ORCID
         </a>
       </div>
@@ -472,7 +223,7 @@
   </div>
 </section>
 
-<!-- ── Publications ── -->
+<!-- Publications -->
 <section id="pubs">
   <div class="section-head">
     <h2 data-lang="en">Publications</h2>
@@ -487,7 +238,9 @@
       <div class="pub-meta">
         <span class="pub-journal">CrystEngComm</span>
         <span class="pub-year">2026</span>
-        <a class="pub-doi" href="https://doi.org/10.1039/D5CE00774G" target="_blank" rel="noopener">DOI: 10.1039/D5CE00774G</a>
+        <span class="pub-badge badge-q2">JCR Q2</span>
+        <span class="pub-badge badge-if">IF 3.1</span>
+        <a class="pub-doi" href="https://doi.org/10.1039/D5CE00774G" target="_blank" rel="noopener">DOI →</a>
       </div>
     </article>
 
@@ -496,7 +249,9 @@
       <div class="pub-meta">
         <span class="pub-journal">Ceramics International</span>
         <span class="pub-year">2025</span>
-        <a class="pub-doi" href="https://doi.org/10.1016/j.ceramint.2025.08.233" target="_blank" rel="noopener">DOI: 10.1016/j.ceramint.2025.08.233</a>
+        <span class="pub-badge badge-q1">JCR Q1</span>
+        <span class="pub-badge badge-if">IF 5.2</span>
+        <a class="pub-doi" href="https://doi.org/10.1016/j.ceramint.2025.08.233" target="_blank" rel="noopener">DOI →</a>
       </div>
     </article>
 
@@ -505,7 +260,9 @@
       <div class="pub-meta">
         <span class="pub-journal">Ceramics International</span>
         <span class="pub-year">2025</span>
-        <a class="pub-doi" href="https://doi.org/10.1016/j.ceramint.2025.05.454" target="_blank" rel="noopener">DOI: 10.1016/j.ceramint.2025.05.454</a>
+        <span class="pub-badge badge-q1">JCR Q1</span>
+        <span class="pub-badge badge-if">IF 5.2</span>
+        <a class="pub-doi" href="https://doi.org/10.1016/j.ceramint.2025.05.454" target="_blank" rel="noopener">DOI →</a>
       </div>
     </article>
 
@@ -514,7 +271,9 @@
       <div class="pub-meta">
         <span class="pub-journal">CrystEngComm</span>
         <span class="pub-year">2025</span>
-        <a class="pub-doi" href="https://doi.org/10.1039/D5CE00581G" target="_blank" rel="noopener">DOI: 10.1039/D5CE00581G</a>
+        <span class="pub-badge badge-q2">JCR Q2</span>
+        <span class="pub-badge badge-if">IF 3.1</span>
+        <a class="pub-doi" href="https://doi.org/10.1039/D5CE00581G" target="_blank" rel="noopener">DOI →</a>
       </div>
     </article>
 
@@ -523,14 +282,14 @@
       <div class="pub-meta">
         <span class="pub-journal">Journal of Innovation and Development</span>
         <span class="pub-year">2023</span>
-        <a class="pub-doi" href="https://doi.org/10.54097/h2n1l8wc" target="_blank" rel="noopener">DOI: 10.54097/h2n1l8wc</a>
+        <a class="pub-doi" href="https://doi.org/10.54097/h2n1l8wc" target="_blank" rel="noopener">DOI →</a>
       </div>
     </article>
 
   </div>
 </section>
 
-<!-- ── Projects ── -->
+<!-- Projects -->
 <section id="projects">
   <div class="section-head">
     <h2 data-lang="en">Projects</h2>
@@ -559,16 +318,6 @@
       </div>
     </a>
 
-    <a class="proj-card" href="https://github.com/ShZhao27208/thesis-typeset" target="_blank" rel="noopener" data-repo="thesis-typeset">
-      <span class="proj-name">thesis-typeset</span>
-      <p class="proj-desc" data-lang="en">One-click graduation thesis formatter — handles styles, numbering, and layout automatically.</p>
-      <p class="proj-desc" data-lang="zh">一键格式化毕业论文，自动处理样式、编号与排版。</p>
-      <div class="proj-stats">
-        <span>★ <span class="stars">—</span></span>
-        <span>⑂ <span class="forks">—</span></span>
-      </div>
-    </a>
-
     <a class="proj-card" href="https://github.com/ShZhao27208/Sh_Sci_Fig" target="_blank" rel="noopener" data-repo="Sh_Sci_Fig">
       <span class="proj-name">Sh_Sci_Fig</span>
       <p class="proj-desc" data-lang="en">Extract and organize figures from academic PDFs with metadata preservation.</p>
@@ -582,7 +331,7 @@
   </div>
 </section>
 
-<!-- ── Footer ── -->
+<!-- Footer -->
 <footer>
   <p>
     <a href="https://orcid.org/0009-0004-5456-4319" target="_blank" rel="noopener">ORCID 0009-0004-5456-4319</a>
@@ -594,10 +343,9 @@
 </footer>
 
 <script>
-  // ── Language toggle ──
+  // Language toggle
   const toggle = document.getElementById('langToggle');
   let lang = 'en';
-
   function applyLang(l) {
     lang = l;
     document.querySelectorAll('[data-lang]').forEach(el => {
@@ -606,17 +354,16 @@
     toggle.textContent = l === 'en' ? '中文' : 'EN';
     document.documentElement.lang = l === 'en' ? 'en' : 'zh';
   }
-
   toggle.addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
-  applyLang('en'); // init
+  applyLang('en');
 
-  // ── Scroll reveal ──
+  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.06 });
   document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-  // ── GitHub API: update star/fork counts ──
+  // GitHub API: live star/fork counts
   const OWNER = 'ShZhao27208';
   document.querySelectorAll('.proj-card[data-repo]').forEach(async card => {
     const repo = card.dataset.repo;
@@ -628,39 +375,31 @@
       const f = card.querySelector('.forks');
       if (s) s.textContent = data.stargazers_count ?? s.textContent;
       if (f) f.textContent = data.forks_count ?? f.textContent;
-    } catch (_) { /* keep hardcoded fallback */ }
+    } catch (_) {}
   });
 
-  // ── ORCID API: append any new works not already listed ──
+  // ORCID API: append new works not already listed
   const ORCID_ID = '0009-0004-5456-4319';
   const KNOWN_DOIS = new Set([
-    '10.1039/d5ce00774g',
-    '10.1016/j.ceramint.2025.08.233',
-    '10.1016/j.ceramint.2025.05.454',
-    '10.1039/d5ce00581g',
-    '10.54097/h2n1l8wc',
+    '10.1039/d5ce00774g','10.1016/j.ceramint.2025.08.233',
+    '10.1016/j.ceramint.2025.05.454','10.1039/d5ce00581g','10.54097/h2n1l8wc',
   ]);
-
   (async () => {
     try {
-      const res = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
-        headers: { Accept: 'application/json' }
-      });
+      const res = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, { headers: { Accept: 'application/json' } });
       if (!res.ok) return;
       const data = await res.json();
-      const groups = data.group ?? [];
       let added = 0;
-      for (const g of groups) {
+      for (const g of (data.group ?? [])) {
         const summary = g['work-summary']?.[0];
         if (!summary) continue;
         const extIds = summary['external-ids']?.['external-id'] ?? [];
         const doiObj = extIds.find(e => e['external-id-type'] === 'doi');
         const doi = doiObj?.['external-id-value']?.toLowerCase().replace('https://doi.org/', '');
-        if (doi && KNOWN_DOIS.has(doi)) continue; // already shown
-        const title = summary.title?.title?.value ?? 'Untitled';
-        const year  = summary['publication-date']?.year?.value ?? '';
+        if (doi && KNOWN_DOIS.has(doi)) continue;
+        const title   = summary.title?.title?.value ?? 'Untitled';
+        const year    = summary['publication-date']?.year?.value ?? '';
         const journal = summary['journal-title']?.value ?? '';
-        const doiHref = doi ? `https://doi.org/${doi}` : '#';
         const card = document.createElement('article');
         card.className = 'pub-card';
         card.innerHTML = `
@@ -668,17 +407,14 @@
           <div class="pub-meta">
             ${journal ? `<span class="pub-journal">${journal}</span>` : ''}
             ${year    ? `<span class="pub-year">${year}</span>` : ''}
-            ${doi     ? `<a class="pub-doi" href="${doiHref}" target="_blank" rel="noopener">DOI: ${doi}</a>` : ''}
+            ${doi     ? `<a class="pub-doi" href="https://doi.org/${doi}" target="_blank" rel="noopener">DOI →</a>` : ''}
           </div>`;
         document.getElementById('pubList').appendChild(card);
         if (doi) KNOWN_DOIS.add(doi);
         added++;
       }
-      if (added > 0) {
-        const total = document.querySelectorAll('.pub-card').length;
-        document.getElementById('pubCount').textContent = total;
-      }
-    } catch (_) { /* silently keep hardcoded data */ }
+      if (added > 0) document.getElementById('pubCount').textContent = document.querySelectorAll('.pub-card').length;
+    } catch (_) {}
   })();
 </script>
 </body>
