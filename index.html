@@ -523,19 +523,23 @@
 
 <script>
   // ── Default data ──
+  // @PUBS_START
   // firstAuthor: true = first/co-first author, sci: true = SCI indexed
   const DEFAULT_PUBS = [
-    { title: 'Super luminescence enhancement, luminescence color-changing and emission mechanism of Sr\u2081.\u2085Ca\u2080.\u2085Al\u2082SiO\u2087:aCe\u2074\u207a,bTb\u00b3\u207a', journal: 'CrystEngComm', year: '2026', doi: '10.1039/D5CE00774G', jcr: 'Q2', if: '3.1', sci: true, firstAuthor: true },
-    { title: 'Sm\u00b3\u207a-activated YAlGeO\u2085 phosphors for bright red emission with ultra-low color temperature', journal: 'Ceramics International', year: '2025', doi: '10.1016/j.ceramint.2025.08.233', jcr: 'Q1', if: '5.2', sci: true, firstAuthor: false },
-    { title: 'Preparation and luminescence mechanism of an orange-red BaCa\u2082Y\u2086O\u2081\u2082:Sm luminescent material with high color purity, quantum yield and thermal stability', journal: 'Ceramics International', year: '2025', doi: '10.1016/j.ceramint.2025.05.454', jcr: 'Q1', if: '5.2', sci: true, firstAuthor: true },
-    { title: 'Insights into the high brightness, color purity, narrowband red-emission and luminous mechanism of Eu-doped CaY\u2082Ge\u2084O\u2081\u2082', journal: 'CrystEngComm', year: '2025', doi: '10.1039/D5CE00581G', jcr: 'Q2', if: '3.1', sci: true, firstAuthor: true },
-    { title: 'Analysis of Congestion Problems at Green Dream Roundabout Intersection in Yubei District', journal: 'Journal of Innovation and Development', year: '2023', doi: '10.54097/h2n1l8wc', jcr: '', if: '', sci: false, firstAuthor: false },
+    { "title": "Super luminescence enhancement, luminescence color-changing and emission mechanism of Sr\u2081.\u2085Ca\u2080.\u2085Al\u2082SiO\u2087:aCe\u2074\u207a,bTb\u00b3\u207a", "journal": "CrystEngComm", "year": "2026", "doi": "10.1039/D5CE00774G", "jcr": "Q2", "if": "2.6", "sci": true, "firstAuthor": true },
+    { "title": "Sm\u00b3\u207a-activated YAlGeO\u2085 phosphors for bright red emission with ultra-low color temperature", "journal": "Ceramics International", "year": "2025", "doi": "10.1016/j.ceramint.2025.08.233", "jcr": "Q1", "if": "5.2", "sci": true, "firstAuthor": false },
+    { "title": "Preparation and luminescence mechanism of an orange-red BaCa\u2082Y\u2086O\u2081\u2082:Sm luminescent material with high color purity, quantum yield and thermal stability", "journal": "Ceramics International", "year": "2025", "doi": "10.1016/j.ceramint.2025.05.454", "jcr": "Q1", "if": "5.2", "sci": true, "firstAuthor": true },
+    { "title": "Insights into the high brightness, color purity, narrowband red-emission and luminous mechanism of Eu-doped CaY\u2082Ge\u2084O\u2081\u2082", "journal": "CrystEngComm", "year": "2025", "doi": "10.1039/D5CE00581G", "jcr": "Q2", "if": "2.6", "sci": true, "firstAuthor": true },
+    { "title": "Analysis of Congestion Problems at Green Dream Roundabout Intersection in Yubei District", "journal": "Journal of Innovation and Development", "year": "2023", "doi": "10.54097/h2n1l8wc", "jcr": "", "if": "", "sci": false, "firstAuthor": false }
   ];
+  // @PUBS_END
+  // @PROJS_START
   const DEFAULT_PROJS = [
-    { name: 'Aut_Sci_Write', descEn: 'Academic research skills suite for Claude Code \u2014 automates literature review, writing, and citation workflows.', descZh: '\u9762\u5411 Claude Code \u7684\u5b66\u672f\u7814\u7a76\u6280\u80fd\u5957\u4ef6\uff0c\u81ea\u52a8\u5316\u6587\u732e\u7efc\u8ff0\u3001\u5199\u4f5c\u4e0e\u5f15\u7528\u6d41\u7a0b\u3002', repo: 'Aut_Sci_Write' },
-    { name: 'Aut_Sci_ppt', descEn: 'Academic PPT auto-generation \u2014 converts research content into structured presentation slides.', descZh: '\u5b66\u672f PPT \u81ea\u52a8\u751f\u6210\u5de5\u5177\uff0c\u5c06\u7814\u7a76\u5185\u5bb9\u8f6c\u6362\u4e3a\u7ed3\u6784\u5316\u6f14\u793a\u6587\u7a3f\u3002', repo: 'Aut_Sci_ppt' },
-    { name: 'Sh_Sci_Fig', descEn: 'Extract and organize figures from academic PDFs with metadata preservation.', descZh: '\u4ece\u5b66\u672f PDF \u4e2d\u63d0\u53d6\u5e76\u6574\u7406\u56fe\u8868\uff0c\u4fdd\u7559\u5143\u6570\u636e\u4fe1\u606f\u3002', repo: 'Sh_Sci_Fig' },
+    { "name": "Aut_Sci_Write", "descEn": "Academic research skills suite for Claude Code \u2014 automates literature review, writing, and citation workflows.", "descZh": "\u9762\u5411 Claude Code \u7684\u5b66\u672f\u7814\u7a76\u6280\u80fd\u5957\u4ef6\uff0c\u81ea\u52a8\u5316\u6587\u732e\u7efc\u8ff0\u3001\u5199\u4f5c\u4e0e\u5f15\u7528\u6d41\u7a0b\u3002", "repo": "Aut_Sci_Write" },
+    { "name": "Aut_Sci_ppt", "descEn": "Academic PPT auto-generation \u2014 converts research content into structured presentation slides.", "descZh": "\u5b66\u672f PPT \u81ea\u52a8\u751f\u6210\u5de5\u5177\uff0c\u5c06\u7814\u7a76\u5185\u5bb9\u8f6c\u6362\u4e3a\u7ed3\u6784\u5316\u6f14\u793a\u6587\u7a3f\u3002", "repo": "Aut_Sci_ppt" },
+    { "name": "Sh_Sci_Fig", "descEn": "Extract and organize figures from academic PDFs with metadata preservation.", "descZh": "\u4ece\u5b66\u672f PDF \u4e2d\u63d0\u53d6\u5e76\u6574\u7406\u56fe\u8868\uff0c\u4fdd\u7559\u5143\u6570\u636e\u4fe1\u606f\u3002", "repo": "Sh_Sci_Fig" }
   ];
+  // @PROJS_END
 
   // ── State ──
   let state = {
