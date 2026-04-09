@@ -627,8 +627,16 @@
   function loadState() {
     try {
       const saved = localStorage.getItem('shzhao_content');
-      if (saved) Object.assign(state, JSON.parse(saved));
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Only override if saved data is non-empty — prevents stale empty arrays from wiping defaults
+        if (parsed.pubs && parsed.pubs.length > 0) state.pubs = parsed.pubs;
+        if (parsed.projs && parsed.projs.length > 0) state.projs = parsed.projs;
+        if (parsed.bioEn) state.bioEn = parsed.bioEn;
+        if (parsed.bioZh) state.bioZh = parsed.bioZh;
+      }
     } catch (_) {}
+  }
   }
 
   function saveState() {
