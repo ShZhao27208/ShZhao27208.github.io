@@ -31,7 +31,7 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       color: var(--ink);
       font-family: 'EB Garamond', 'Noto Serif SC', serif;
-      font-size: 1rem;
+      font-size: 1.08rem;
       font-weight: 400;
       line-height: 1.7;
       min-height: 100vh;
@@ -104,9 +104,23 @@
     }
 
     .hero-bio {
-      font-size: 1rem; color: var(--ink-mid);
+      font-size: 1.05rem; color: var(--ink-mid);
       max-width: 520px; line-height: 1.75; margin-top: 0.75rem;
     }
+
+    /* ── Contact info ── */
+    .contact-grid {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+      margin-top: 0.9rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+    .contact-item { display: flex; align-items: center; gap: 0.4rem; }
+    .contact-label {
+      font-size: 0.68rem; letter-spacing: 0.06em;
+      color: var(--vermilion); opacity: 0.8; text-transform: uppercase;
+    }
+    .contact-value { color: var(--ink-mid); }
 
     .hero-links { display: flex; gap: 0.7rem; margin-top: 1.2rem; flex-wrap: wrap; }
     .icon-link {
@@ -171,12 +185,24 @@
       display: inline !important; /* always visible regardless of lang */
     }
     .pub-doi:hover { color: var(--vermilion); }
-    /* First-author badge */
-    .badge-first {
+    /* First-author badges */
+    .badge-first-sole {
       font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
       padding: 0.08rem 0.42rem; border-radius: 3px; letter-spacing: 0.04em;
-      background: rgba(192,57,43,0.12); color: var(--vermilion);
-      border: 1px solid rgba(192,57,43,0.4); font-weight: 600;
+      background: rgba(192,57,43,0.15); color: var(--vermilion);
+      border: 1px solid rgba(192,57,43,0.5); font-weight: 700;
+    }
+    .badge-first-co {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+      padding: 0.08rem 0.42rem; border-radius: 3px; letter-spacing: 0.04em;
+      background: rgba(192,57,43,0.07); color: var(--vermilion-dim);
+      border: 1px solid rgba(192,57,43,0.3); font-weight: 600;
+    }
+    .badge-rank {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+      padding: 0.08rem 0.42rem; border-radius: 3px;
+      background: rgba(74,63,47,0.07); color: var(--ink-muted);
+      border: 1px solid var(--border);
     }
     /* SCI stats bar */
     .pub-stats-bar {
@@ -428,6 +454,22 @@
       <p class="hero-bio" id="bioZh" data-lang="zh">
         专注于发光材料研究，涵盖荧光粉合成、稀土掺杂及光致发光机制。立足中国，致力于将材料合成与光学表征相结合，探索新一代照明材料的设计路径。
       </p>
+
+      <!-- Contact info -->
+      <div class="contact-grid" id="contactGrid">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">2720828562@qq.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">QQ</span>
+          <span class="contact-value">2720828562</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">WeChat</span>
+          <span class="contact-value">zhao_shuo_27208</span>
+        </div>
+      </div>
       <div class="hero-links">
         <a class="icon-link" href="https://github.com/ShZhao27208" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 6.1 18 6.4 18 6.4c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
@@ -460,8 +502,8 @@
     </div>
     <div class="stat-item">
       <span class="stat-num" id="statFirst">—</span>
-      <span class="stat-label" data-lang="en">FIRST / CO-FIRST</span>
-      <span class="stat-label" data-lang="zh">一作 / 共同一作</span>
+      <span class="stat-label" data-lang="en">SOLE + CO-FIRST</span>
+      <span class="stat-label" data-lang="zh">一作 + 共同一作</span>
     </div>
   </div>
 
@@ -526,11 +568,11 @@
   // @PUBS_START
   // firstAuthor: true = first/co-first author, sci: true = SCI indexed
   const DEFAULT_PUBS = [
-    { "title": "Super luminescence enhancement, luminescence color-changing and emission mechanism of Sr\u2081.\u2085Ca\u2080.\u2085Al\u2082SiO\u2087:aCe\u2074\u207a,bTb\u00b3\u207a", "journal": "CrystEngComm", "year": "2026", "doi": "10.1039/D5CE00774G", "jcr": "Q2", "if": "2.6", "sci": true, "firstAuthor": true },
-    { "title": "Sm\u00b3\u207a-activated YAlGeO\u2085 phosphors for bright red emission with ultra-low color temperature", "journal": "Ceramics International", "year": "2025", "doi": "10.1016/j.ceramint.2025.08.233", "jcr": "Q1", "if": "5.2", "sci": true, "firstAuthor": false },
-    { "title": "Preparation and luminescence mechanism of an orange-red BaCa\u2082Y\u2086O\u2081\u2082:Sm luminescent material with high color purity, quantum yield and thermal stability", "journal": "Ceramics International", "year": "2025", "doi": "10.1016/j.ceramint.2025.05.454", "jcr": "Q1", "if": "5.2", "sci": true, "firstAuthor": true },
-    { "title": "Insights into the high brightness, color purity, narrowband red-emission and luminous mechanism of Eu-doped CaY\u2082Ge\u2084O\u2081\u2082", "journal": "CrystEngComm", "year": "2025", "doi": "10.1039/D5CE00581G", "jcr": "Q2", "if": "2.6", "sci": true, "firstAuthor": true },
-    { "title": "Analysis of Congestion Problems at Green Dream Roundabout Intersection in Yubei District", "journal": "Journal of Innovation and Development", "year": "2023", "doi": "10.54097/h2n1l8wc", "jcr": "", "if": "", "sci": false, "firstAuthor": false }
+    { "title": "Super luminescence enhancement, luminescence color-changing and emission mechanism of Sr\u2081.\u2085Ca\u2080.\u2085Al\u2082SiO\u2087:aCe\u2074\u207a,bTb\u00b3\u207a", "journal": "CrystEngComm", "year": "2026", "doi": "10.1039/D5CE00774G", "jcr": "Q2", "if": "2.6", "sci": true, "authorRank": 1, "authorTotal": 9, "firstType": "sole" },
+    { "title": "Sm\u00b3\u207a-activated YAlGeO\u2085 phosphors for bright red emission with ultra-low color temperature", "journal": "Ceramics International", "year": "2025", "doi": "10.1016/j.ceramint.2025.08.233", "jcr": "Q1", "if": "5.2", "sci": true, "authorRank": 3, "authorTotal": 10, "firstType": "" },
+    { "title": "Preparation and luminescence mechanism of an orange-red BaCa\u2082Y\u2086O\u2081\u2082:Sm luminescent material with high color purity, quantum yield and thermal stability", "journal": "Ceramics International", "year": "2025", "doi": "10.1016/j.ceramint.2025.05.454", "jcr": "Q1", "if": "5.2", "sci": true, "authorRank": 2, "authorTotal": 7, "firstType": "co" },
+    { "title": "Insights into the high brightness, color purity, narrowband red-emission and luminous mechanism of Eu-doped CaY\u2082Ge\u2084O\u2081\u2082", "journal": "CrystEngComm", "year": "2025", "doi": "10.1039/D5CE00581G", "jcr": "Q2", "if": "2.6", "sci": true, "authorRank": 2, "authorTotal": 9, "firstType": "co" },
+    { "title": "Analysis of Congestion Problems at Green Dream Roundabout Intersection in Yubei District", "journal": "Journal of Innovation and Development", "year": "2023", "doi": "10.54097/h2n1l8wc", "jcr": "", "if": "", "sci": false, "authorRank": 2, "authorTotal": 3, "firstType": "" }
   ];
   // @PUBS_END
   // @PROJS_START
@@ -564,21 +606,32 @@
   function renderPubs() {
     const list = document.getElementById('pubList');
     list.innerHTML = '';
-    let sciCount = 0, firstCount = 0;
+    let sciCount = 0, soleFirst = 0, coFirst = 0;
     state.pubs.forEach(p => {
       if (p.sci) sciCount++;
-      if (p.sci && p.firstAuthor) firstCount++;
+      if (p.sci && p.firstType === 'sole') soleFirst++;
+      if (p.sci && p.firstType === 'co') coFirst++;
+
+      const jcrClass = p.jcr === 'Q1' ? 'badge-q1' : p.jcr === 'Q2' ? 'badge-q2' : '';
+
+      // Author rank badge
+      let rankBadge = '';
+      if (p.firstType === 'sole') {
+        rankBadge = `<span class="pub-badge badge-first-sole" title="First Author">★ 一作</span>`;
+      } else if (p.firstType === 'co') {
+        rankBadge = `<span class="pub-badge badge-first-co" title="Co-first Author">☆ 共同一作</span>`;
+      }
+      const rankNum = (p.authorRank && p.authorTotal)
+        ? `<span class="pub-badge badge-rank">${p.authorRank}/${p.authorTotal}</span>`
+        : '';
+
+      const doiText = p.doi ? `DOI: ${p.doi}` : '';
       const art = document.createElement('article');
       art.className = 'pub-card';
-      const jcrClass = p.jcr === 'Q1' ? 'badge-q1' : p.jcr === 'Q2' ? 'badge-q2' : '';
-      const firstBadge = p.firstAuthor
-        ? `<span class="pub-badge badge-first" title="First / Co-first Author">★ 一作</span>`
-        : '';
-      const doiText = p.doi ? `DOI: ${p.doi}` : '';
       art.innerHTML = `
         <p class="pub-title">${p.title}</p>
         <div class="pub-meta">
-          ${firstBadge}
+          ${rankBadge}${rankNum}
           ${p.journal ? `<span class="pub-journal">${p.journal}</span>` : ''}
           ${p.year    ? `<span class="pub-year">${p.year}</span>` : ''}
           ${p.jcr     ? `<span class="pub-badge ${jcrClass}">JCR ${p.jcr}</span>` : ''}
@@ -589,7 +642,7 @@
     });
     document.getElementById('pubCount').textContent = state.pubs.length;
     document.getElementById('statSci').textContent = sciCount;
-    document.getElementById('statFirst').textContent = firstCount;
+    document.getElementById('statFirst').textContent = `${soleFirst}+${coFirst}`;
   }
 
   // ── Render projects from state ──
@@ -652,12 +705,31 @@
     });
   }
 
-  // ── ORCID API ──
+  // ── ORCID API: auto-fetch new works with author rank detection ──
   const ORCID_ID = '0009-0004-5456-4319';
+  const MY_NAMES = ['shuo zhao', 'zhao, shuo', 'zhao shuo'];
   const KNOWN_DOIS = new Set([
     '10.1039/d5ce00774g','10.1016/j.ceramint.2025.08.233',
     '10.1016/j.ceramint.2025.05.454','10.1039/d5ce00581g','10.54097/h2n1l8wc',
   ]);
+
+  function isMyName(name) {
+    const n = (name || '').toLowerCase();
+    return MY_NAMES.some(m => n.includes(m) || m.includes(n));
+  }
+
+  async function fetchWorkDetail(putCode) {
+    try {
+      const res = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/work/${putCode}`, { headers: { Accept: 'application/json' } });
+      if (!res.ok) return null;
+      const data = await res.json();
+      const contribs = data.contributors?.contributor ?? [];
+      const total = contribs.length;
+      const rank = contribs.findIndex(c => isMyName(c['credit-name']?.value ?? '')) + 1;
+      return total > 0 ? { total, rank } : null;
+    } catch (_) { return null; }
+  }
+
   (async () => {
     try {
       const res = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, { headers: { Accept: 'application/json' } });
@@ -674,14 +746,27 @@
         const title   = summary.title?.title?.value ?? 'Untitled';
         const year    = summary['publication-date']?.year?.value ?? '';
         const journal = summary['journal-title']?.value ?? '';
+        const putCode = summary['put-code'];
+
+        let rankBadge = '', rankNum = '';
+        if (putCode) {
+          const detail = await fetchWorkDetail(putCode);
+          if (detail && detail.rank > 0) {
+            rankNum = `<span class="pub-badge badge-rank">${detail.rank}/${detail.total}</span>`;
+            if (detail.rank === 1) rankBadge = `<span class="pub-badge badge-first-sole">★ 一作</span>`;
+            else if (detail.rank === 2) rankBadge = `<span class="pub-badge badge-first-co">☆ 共同一作</span>`;
+          }
+        }
+
         const card = document.createElement('article');
         card.className = 'pub-card';
         card.innerHTML = `
           <p class="pub-title">${title}</p>
           <div class="pub-meta">
+            ${rankBadge}${rankNum}
             ${journal ? `<span class="pub-journal">${journal}</span>` : ''}
             ${year    ? `<span class="pub-year">${year}</span>` : ''}
-            ${doi     ? `<a class="pub-doi" href="https://doi.org/${doi}" target="_blank" rel="noopener">DOI \u2192</a>` : ''}
+            ${doi     ? `<a class="pub-doi" href="https://doi.org/${doi}" target="_blank" rel="noopener">DOI: ${doi}</a>` : ''}
           </div>`;
         document.getElementById('pubList').appendChild(card);
         if (doi) KNOWN_DOIS.add(doi);
