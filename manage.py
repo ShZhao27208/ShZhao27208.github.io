@@ -71,6 +71,8 @@ def _extract_contacts(content: str) -> list[dict]:
 
 
 def write_pubs(pubs: list) -> None:
+    if not pubs:  # safety: never overwrite with empty list
+        return
     content = read_html()
     new_block = (
         "// @PUBS_START\n"
