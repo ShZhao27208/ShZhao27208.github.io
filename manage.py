@@ -108,16 +108,36 @@ def write_bio(bio_en: str, bio_zh: str) -> None:
     write_html(content)
 
 
+def _extract_contacts(content: str) -> list[dict]:
+    """Extract contacts as grouped items: {label, values: [v1, v2, ...]}"""
+    m = re.search(r'id="contactGrid"[^>]*>([\s\S]*?)</div>\s*<div class="hero-links"', content)
+    if not m:
+        return []
+    block = m.group(1)
+    # Find each contact-item block
+    items = re.findall(r'<div class="contact-item">([\s\S]*?)</div>', block)
+    result = []
+    for item in items:
+        label_m = re.search(r'<span class="contact-label">([^<]+)</span>', item)
+        values = re.findall(r'<span class="contact-value">([^<]+)</span>', item)
+        if label_m and values:
+            result.append({"label": label_m.group(1).strip(), "values": [v.strip() for v in values]})
+    return result
+
+
 def write_contacts(contacts: list[dict]) -> None:
     content = read_html()
-    items_html = "\n".join(
-        f'        <div class="contact-item">\n'
-        f'          <span class="contact-label">{c["label"]}</span>\n'
-        f'          <span class="contact-value">{c["value"]}</span>\n'
-        f'        </div>'
-        for c in contacts
-    )
-    new_grid = f'<div class="contact-grid" id="contactGrid">\n{items_html}\n      </div>'
+    items_html = ""
+    for c in contacts:
+        values = c.get("values") or ([c["value"]] if c.get("value") else [])
+        vals_html = "\n".join(f'          <span class="contact-value">{v}</span>' for v in values)
+        items_html += (
+            f'        <div class="contact-item">\n'
+            f'          <span class="contact-label">{c["label"]}</span>\n'
+            f'{vals_html}\n'
+            f'        </div>\n'
+        )
+    new_grid = f'<div class="contact-grid" id="contactGrid">\n{items_html}      </div>'
     write_html(re.sub(
         r'<div class="contact-grid" id="contactGrid">[\s\S]*?</div>(?=\s*<div class="hero-links")',
         new_grid, content, count=1,
