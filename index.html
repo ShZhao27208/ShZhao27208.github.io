@@ -228,7 +228,17 @@
     .badge-if { background: transparent; color: var(--ink-muted); border: 1px solid var(--border); }
 
     /* ── Projects ── */
-    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    /* Last item alone on a row → center it */
+    .proj-grid .proj-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 0.375rem);
+      margin: 0 auto;
+    }
     .proj-card {
       background: var(--bg-card); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 1.1rem 1.3rem;
@@ -378,7 +388,7 @@
   <ul class="nav-links">
     <li><a href="#about"    data-lang="en">About</a><a href="#about"    data-lang="zh">关于</a></li>
     <li><a href="#pubs"     data-lang="en">Academic Projects</a><a href="#pubs"     data-lang="zh">学术项目</a></li>
-    <li><a href="#projects" data-lang="en">Projects</a><a href="#projects" data-lang="zh">项目</a></li>
+    <li><a href="#projects" data-lang="en">GitHub</a><a href="#projects" data-lang="zh">GitHub</a></li>
     <li><button class="lang-btn" id="langToggle">中文</button></li>
   </ul>
 </nav>
@@ -521,8 +531,8 @@
 <!-- Projects -->
 <section id="projects">
   <div class="section-head">
-    <h2 data-lang="en">Projects</h2>
-    <h2 data-lang="zh">开源项目</h2>
+    <h2 data-lang="en">GitHub</h2>
+    <h2 data-lang="zh">GitHub</h2>
     <span class="section-line"></span>
   </div>
   <div class="proj-grid" id="projGrid">
