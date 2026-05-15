@@ -17,7 +17,6 @@ from urllib.parse import urlparse, parse_qs
 BASE_DIR = Path(__file__).parent
 INDEX_HTML = BASE_DIR / "index.html"
 PORT = 8765
-WOS_API_KEY = "54d3152b36052806649159575dfa2cad1102c69f"
 WOS_ENDPOINT = "https://api.clarivate.com/apis/wos-starter/v1/documents"
 
 

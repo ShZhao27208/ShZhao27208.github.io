@@ -568,6 +568,36 @@
       </div>
     </a>
 
+    <a class="proj-card" href="https://github.com/ShZhao27208/Aut_Sci_Html" target="_blank" rel="noopener" data-repo="Aut_Sci_Html">
+      <span class="proj-name">Aut_Sci_Html</span>
+      <p class="proj-desc" data-lang="en">Generate interactive HTML slide decks from academic PDFs — browser-based presentations with keyboard navigation and figure embedding.</p>
+      <p class="proj-desc" data-lang="zh">从学术 PDF 生成交互式 HTML 幻灯片，支持浏览器端演示、键盘导航与图表嵌入。</p>
+      <div class="proj-stats">
+        <span>★ <span class="stars">—</span></span>
+        <span>⑂ <span class="forks">—</span></span>
+      </div>
+    </a>
+
+    <a class="proj-card" href="https://github.com/ShZhao27208/InsDowload" target="_blank" rel="noopener" data-repo="InsDowload">
+      <span class="proj-name">InsDowload</span>
+      <p class="proj-desc" data-lang="en">Edge/Chrome extension for local Instagram media download workflows, provided for educational and technical research use.</p>
+      <p class="proj-desc" data-lang="zh">面向 Instagram 媒体下载流程的 Edge/Chrome 本地浏览器扩展，仅用于教学学习与技术研究。</p>
+      <div class="proj-stats">
+        <span>★<span class="stars">—</span></span>
+        <span>⑂<span class="forks">—</span></span>
+      </div>
+    </a>
+
+    <a class="proj-card" href="https://github.com/ShZhao27208/tikdownload" target="_blank" rel="noopener" data-repo="tikdownload">
+      <span class="proj-name">TikDownload</span>
+      <p class="proj-desc" data-lang="en">Edge/Chrome extension for TikTok and Douyin media download experiments, intended for educational and technical research use.</p>
+      <p class="proj-desc" data-lang="zh">面向 TikTok 与抖音媒体下载实验的 Edge/Chrome 浏览器扩展，仅用于教学学习与技术研究。</p>
+      <div class="proj-stats">
+        <span>★<span class="stars">—</span></span>
+        <span>⑂<span class="forks">—</span></span>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -613,6 +643,18 @@
         "descEn": "Extract and organize figures from academic PDFs with metadata preservation.",
         "descZh": "从学术 PDF 中提取并整理图表，保留元数据信息。",
         "repo": "Sh_Sci_Fig"
+    },
+    {
+        "name": "InsDowload",
+        "descEn": "Edge/Chrome extension for local Instagram media download workflows, provided for educational and technical research use.",
+        "descZh": "面向 Instagram 媒体下载流程的 Edge/Chrome 本地浏览器扩展，仅用于教学学习与技术研究。",
+        "repo": "InsDowload"
+    },
+    {
+        "name": "TikDownload",
+        "descEn": "Edge/Chrome extension for TikTok and Douyin media download experiments, intended for educational and technical research use.",
+        "descZh": "面向 TikTok 与抖音媒体下载实验的 Edge/Chrome 浏览器扩展，仅用于教学学习与技术研究。",
+        "repo": "tikdownload"
     }
 ];
   // @PROJS_END
@@ -632,7 +674,13 @@
         const parsed = JSON.parse(saved);
         // Only override if saved data is non-empty — prevents stale empty arrays from wiping defaults
         if (parsed.pubs && parsed.pubs.length > 0) state.pubs = parsed.pubs;
-        if (parsed.projs && parsed.projs.length > 0) state.projs = parsed.projs;
+        if (parsed.projs && parsed.projs.length > 0) {
+          const savedRepos = new Set(parsed.projs.map(p => p.repo));
+          state.projs = [
+            ...parsed.projs,
+            ...DEFAULT_PROJS.filter(p => !savedRepos.has(p.repo))
+          ];
+        }
         if (parsed.bioEn) state.bioEn = parsed.bioEn;
         if (parsed.bioZh) state.bioZh = parsed.bioZh;
       }
