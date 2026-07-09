@@ -1,7 +1,8 @@
 <h1 align="center">
   Shuo Zhao
-  <span style="font-style:italic;color:#C0392B;font-weight:400;"> / 瞾</span>
+  <span style="font-style:italic;color:#C0392B;font-weight:400;"> / 曌</span>
 </h1>
+
 
 <p align="center">
   <em style="color:#7A6E5E;">Materials Science & Engineering · Chongqing Jiaotong University</em>
